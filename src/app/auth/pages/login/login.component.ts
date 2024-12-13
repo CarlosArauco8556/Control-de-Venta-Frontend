@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { HomeNavbarComponent } from "../../_shared/components/home-navbar/home-navbar.component";
 
 @Component({
-  selector: 'app-auth-home',
+  selector: 'app-login',
   imports: [HomeNavbarComponent],
-  templateUrl: './auth-home.component.html',
-  styleUrl: './auth-home.component.css'
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.css'
 })
-export class AuthHomeComponent {
+export class LoginComponent {
 
 }
