@@ -5,10 +5,11 @@ import { GetProducts } from '../../interfaces/getProducts';
 import { HttpClientModule } from '@angular/common/http';
 import { QueryParams } from '../../interfaces/queryParams';
 import { CommonModule } from '@angular/common';
+import { ChangePageButtonsComponent } from '../../components/change-page-buttons/change-page-buttons.component';
 
 @Component({
   selector: 'products-get-products',
-  imports: [CardComponent, HttpClientModule, CommonModule],
+  imports: [CardComponent, HttpClientModule, CommonModule, ChangePageButtonsComponent],
   providers: [ProductService],
   templateUrl: './get-products.component.html',
   styleUrl: './get-products.component.css'
