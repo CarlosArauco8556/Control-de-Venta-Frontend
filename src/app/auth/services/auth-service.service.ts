@@ -1,8 +1,9 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Auth } from '../interfaces/Auth';
-import { LoginDto } from '../interfaces/LoginDto';
+import { Auth } from '../interfaces/auth-login/Auth';
+import { LoginDto } from '../interfaces/auth-login/LoginDto';
 import { firstValueFrom } from 'rxjs';
+import { Register } from '../interfaces/auth-register/Register';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,18 @@ export class AuthServiceService {
       return Promise.resolve(response);
     } catch (error) {
       console.log('Error en login', error);
+      let e = error as HttpErrorResponse;
+      this.errors.push(e.message);
+      return Promise.reject(error);
+    }
+  }
+
+  async register(registerDto: Register): Promise<Auth> {
+    try {
+      const response = await firstValueFrom(this.http.post<Auth>(`${this.baseUrl}/api/Auth/register`, registerDto));
+      return Promise.resolve(response);
+    } catch (error) {
+      console.log('Error en register', error);
       let e = error as HttpErrorResponse;
       this.errors.push(e.message);
       return Promise.reject(error);
