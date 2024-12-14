@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   private authService: AuthServiceService = inject(AuthServiceService);
   errorMessage: string[] = [];
   forms!: FormGroup;
+  confirmMessage: string = '';
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -49,6 +50,7 @@ export class LoginComponent implements OnInit {
         console.log('Error al loguear el usuario', this.errorMessage);
       }
     } catch (error) {
+      this.confirmMessage = 'Error al loguear el usuario';
       console.log('Error en login', error);
     }
   }
