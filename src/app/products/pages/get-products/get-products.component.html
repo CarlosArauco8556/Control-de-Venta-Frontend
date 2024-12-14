@@ -1,6 +1,8 @@
-<div class = "mx-32">
-    <p class = "text-6xl font-extrabold text-center mt-20">Productos</p>
-    <div class = "mt-24">
-        <products-card></products-card>
+<div class = "mx-32 mb-28">
+    <p class = "text-6xl font-extrabold text-center mt-20">Products</p>
+    <div class = "flex flex-wrap justify-center gap-x-10 gap-y-10 mt-16">
+        <div *ngFor = "let product of products">
+            <products-card [product] = "product"></products-card>
+        </div>
     </div>
 </div>

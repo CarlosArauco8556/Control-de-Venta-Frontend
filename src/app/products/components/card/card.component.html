@@ -1,12 +1,12 @@
-<div class = "w-80 h-64 rounded-xl border-4 border-black bg-cyan-400">
-    <p class = "text-2xl text-center font-bold mt-5 mb-5 text-black"><strong>Product name</strong></p>
+<div class = "w-96 h-64 rounded-xl border-4 border-black bg-cyan-400">
+    <p class = "text-2xl text-center font-bold mt-5 mb-5 text-black"><strong>{{product.name}}</strong></p>
 
     <hr class = "border-t-4 w-full border-black">
 
     <div class = "flex flex-col justify-center p-6">
-        <p class = "text-lg"><strong>Price:</strong> $ <!--{{product.Price}}--></p>
-        <p class = "text-lg"><strong>Discount percentage:</strong> % <!--{{product.DiscountPercentage}}--></p>
-        <p class = "text-lg"><strong>Stock:</strong> <!--{{product.Stock}}--></p>
-        <p class = "text-lg"><strong>Minimun stock:</strong> <!--{{product.StockMin}}--></p>
+        <p class = "text-xl"><strong>Price:</strong> $ {{product.price}}</p>
+        <p class = "text-xl"><strong>Discount percentage:</strong> % {{product.discountPercentage}}</p>
+        <p class = "text-xl"><strong>Stock:</strong> {{product.stock}}</p>
+        <p class = "text-xl"><strong>Minimun stock:</strong> {{product.stockMin}}</p>
     </div>
 </div>

@@ -4,10 +4,11 @@ import { ProductService } from '../../services/product.service';
 import { GetProducts } from '../../interfaces/getProducts';
 import { HttpClientModule } from '@angular/common/http';
 import { QueryParams } from '../../interfaces/queryParams';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'products-get-products',
-  imports: [CardComponent, HttpClientModule],
+  imports: [CardComponent, HttpClientModule, CommonModule],
   providers: [ProductService],
   templateUrl: './get-products.component.html',
   styleUrl: './get-products.component.css'
