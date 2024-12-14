@@ -52,4 +52,33 @@ export class LoginComponent implements OnInit {
       console.log('Error en login', error);
     }
   }
+
+  get EmailErrors() {
+    const email = this.forms.get('email');
+    if (email?.invalid && email?.touched) {
+      if (email.hasError('required')) {
+        return 'El correo es obligatorio.';
+      }
+      if (email.hasError('email')) {
+        return 'El correo debe ser válido.';
+      }
+    }
+    return null;
+  }
+  
+  get PasswordErrors() {
+    const password = this.forms.get('password');
+    if (password?.invalid && password?.touched) {
+      if (password.hasError('required')) {
+        return 'La contraseña es obligatoria.';
+      }
+      if (password.hasError('minlength')) {
+        return 'La contraseña debe tener al menos 8 caracteres.';
+      }
+      if (password.hasError('maxlength')) {
+        return 'La contraseña no debe exceder 20 caracteres.';
+      }
+    }
+    return null;
+  }
 }
