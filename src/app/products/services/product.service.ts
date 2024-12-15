@@ -15,7 +15,7 @@ export class ProductService {
   async getAllProducts(queryParamsI: QueryParams): Promise<GetProducts[]>{
     try
     {
-      const token = localStorage.getItem('token') || 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGlkd20uY2wiLCJnaXZlbl9uYW1lIjoiYWRtaW4iLCJqdGkiOiJmZjIwNGE3MC1jMGZhLTQzMDktYTA4Ny0yNmIzZWE2OGRlZjIiLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE3MzQxMjMwOTEsImV4cCI6MTczNDIwOTQ5MSwiaWF0IjoxNzM0MTIzMDkxLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUwMCJ9.Hql1nn2RC1kGsw4sfu0A7dmfCfydXbLdXqqu6ONy-QBW1w4CL3I7VwpZo-AbawpjVig60qZsU0rV6AP-U4EFlw';
+      const token = localStorage.getItem('token') || 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGlkd20uY2wiLCJnaXZlbl9uYW1lIjoiYWRtaW4iLCJqdGkiOiIwMWEwODQ1MS00N2E3LTQwOGMtOGRiNC1iOWRmZDQ4Mzc4YjciLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE3MzQyMjg5OTQsImV4cCI6MTczNDMxNTM5NCwiaWF0IjoxNzM0MjI4OTk0LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUwMCJ9.ShZFPIGhy4y2WBvn6EkeWX4FmzHqnQlrc3PltoXpxPQbArUf0PZ1nU6UOZ92poLULbRWBLdcA5ENbQ5y-RSMHA';
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       let queryParams = new HttpParams()
         if (queryParamsI.textFilter) queryParams = queryParams.set('textFilter', queryParamsI.textFilter);

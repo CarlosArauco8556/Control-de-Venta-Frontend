@@ -6,10 +6,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { QueryParams } from '../../interfaces/queryParams';
 import { CommonModule } from '@angular/common';
 import { ChangePageButtonsComponent } from '../../components/change-page-buttons/change-page-buttons.component';
+import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
 
 @Component({
   selector: 'products-get-products',
-  imports: [CardComponent, HttpClientModule, CommonModule, ChangePageButtonsComponent],
+  imports: [CardComponent, HttpClientModule, CommonModule, ChangePageButtonsComponent, SearchBarComponent],
   providers: [ProductService],
   templateUrl: './get-products.component.html',
   styleUrl: './get-products.component.css'
