@@ -20,6 +20,21 @@ export const routes: Routes = [
         loadComponent: () => import('./products/pages/get-products/get-products.component').then(m => m.GetProductsComponent)
     },
     {
+        path: 'add-product',
+        pathMatch: 'full',
+        loadComponent: () => import('./products/pages/add-product/add-product.component').then(m => m.AddProductComponent)
+    },
+    {
+        path: 'delete-product/:id',
+        pathMatch: 'full',
+        loadComponent: () => import('./products/pages/delete-product/delete-product.component').then(m => m.DeleteProductComponent)
+    },
+    {
+        path: 'update-product/:id',
+        pathMatch: 'full',
+        loadComponent: () => import('./products/pages/update-product/update-product.component').then(m => m.UpdateProductComponent)
+    },
+    {
         path: '**',
         redirectTo: 'auth-home'
     }
