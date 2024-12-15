@@ -25,7 +25,7 @@ export const routes: Routes = [
         loadComponent: () => import('./products/pages/add-product/add-product.component').then(m => m.AddProductComponent)
     },
     {
-        path: 'delete-product/:id',
+        path: 'delete-product',
         pathMatch: 'full',
         loadComponent: () => import('./products/pages/delete-product/delete-product.component').then(m => m.DeleteProductComponent)
     },

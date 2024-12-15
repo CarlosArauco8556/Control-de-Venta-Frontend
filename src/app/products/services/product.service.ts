@@ -9,6 +9,7 @@ import { QueryParams } from '../interfaces/queryParams';
 })
 export class ProductService {
   baseUrl = 'http://localhost:5037/api/Product';
+  baseUrl1 = 'http://localhost:5037/api/ProductManagement';
   public errors: string[] = [];
   private http = inject(HttpClient);
 
@@ -42,7 +43,7 @@ export class ProductService {
     {
       const token = localStorage.getItem('token') || 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGlkd20uY2wiLCJnaXZlbl9uYW1lIjoiYWRtaW4iLCJqdGkiOiIwMWEwODQ1MS00N2E3LTQwOGMtOGRiNC1iOWRmZDQ4Mzc4YjciLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE3MzQyMjg5OTQsImV4cCI6MTczNDMxNTM5NCwiaWF0IjoxNzM0MjI4OTk0LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUwMCJ9.ShZFPIGhy4y2WBvn6EkeWX4FmzHqnQlrc3PltoXpxPQbArUf0PZ1nU6UOZ92poLULbRWBLdcA5ENbQ5y-RSMHA';
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      const response = await firstValueFrom(this.http.post<GetProducts>(this.baseUrl, product, { headers: headers }));
+      const response = await firstValueFrom(this.http.post<GetProducts>(this.baseUrl1, product, { headers: headers }));
       return Promise.resolve(response);
     } catch (error){
       console.log("Error in AddProduct", error);
@@ -58,7 +59,7 @@ export class ProductService {
     {
       const token = localStorage.getItem('token') || 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGlkd20uY2wiLCJnaXZlbl9uYW1lIjoiYWRtaW4iLCJqdGkiOiIwMWEwODQ1MS00N2E3LTQwOGMtOGRiNC1iOWRmZDQ4Mzc4YjciLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE3MzQyMjg5OTQsImV4cCI6MTczNDMxNTM5NCwiaWF0IjoxNzM0MjI4OTk0LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUwMCJ9.ShZFPIGhy4y2WBvn6EkeWX4FmzHqnQlrc3PltoXpxPQbArUf0PZ1nU6UOZ92poLULbRWBLdcA5ENbQ5y-RSMHA';
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      const response = await firstValueFrom(this.http.put<GetProducts>(`${this.baseUrl}/${id}`, product, { headers: headers}));
+      const response = await firstValueFrom(this.http.put<GetProducts>(`${this.baseUrl1}/${id}`, product, { headers: headers}));
       return Promise.resolve(response);
     } catch (error){
       console.log("Error in UpdateProduct", error)
@@ -74,7 +75,7 @@ export class ProductService {
     {
       const token = localStorage.getItem('token') || 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGlkd20uY2wiLCJnaXZlbl9uYW1lIjoiYWRtaW4iLCJqdGkiOiIwMWEwODQ1MS00N2E3LTQwOGMtOGRiNC1iOWRmZDQ4Mzc4YjciLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE3MzQyMjg5OTQsImV4cCI6MTczNDMxNTM5NCwiaWF0IjoxNzM0MjI4OTk0LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUwMCJ9.ShZFPIGhy4y2WBvn6EkeWX4FmzHqnQlrc3PltoXpxPQbArUf0PZ1nU6UOZ92poLULbRWBLdcA5ENbQ5y-RSMHA';
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      const response = await firstValueFrom(this.http.delete<GetProducts>(`${this.baseUrl}/${id}`, { headers: headers}));
+      const response = await firstValueFrom(this.http.delete<GetProducts>(`${this.baseUrl1}/${id}`, { headers: headers}));
       return Promise.resolve(response);
     } catch (error){
       console.log("Error in DeleteProduct", error);
