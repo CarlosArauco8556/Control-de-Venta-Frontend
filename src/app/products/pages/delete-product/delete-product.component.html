@@ -1,0 +1,25 @@
+<p class = "text-6xl font-extrabold text-center mt-20 text-shadow">Delete Product</p>
+
+<div class = "flex items-center gap-x-10 mt-20">  
+    <form class = "w-96 mx-auto" (submit) = "deleteProduct(imput.value); $event.preventDefault()">
+        <label for = "default-search" class = "text-lg sr-only">Delete</label>
+        <div class = "relative">
+            <input type="search" id="default-search" #imput class="block w-full p-4 ps-10 text-lg text-gray-900 border border-black rounded-lg bg-gray-50" placeholder="Product id" required />
+            <button type="submit" class="text-black absolute end-2.5 bottom-2.5 border-2 border-black bg-gradient-to-r from-cyan-300 to-cyan-600 hover:text-white font-bold rounded-xl text-xl px-4 py-1">Delete</button>
+        </div>
+    </form>
+</div>
+
+<div class = "w-80 h-60 rounded-xl border-4 border-black bg-gradient-to-b from-cyan-300 to-cyan-600 shadow-lg shadow-gray-800 hidden">
+    <p class = "text-xl text-center font-bold mt-5 mb-5 text-black"><strong>{{product.name}}</strong></p>
+
+    <hr class = "border-t-4 w-full border-black">
+
+    <div class = "flex flex-col justify-center p-6">
+        <p class = "text-lg"><strong>Price:</strong> $ {{product.price}}</p>
+        <p class = "text-lg"><strong>Discount percentage:</strong> % {{product.discountPercentage}}</p>
+        <p class = "text-lg"><strong>Stock:</strong> {{product.stock}}</p>
+        <p class = "text-lg"><strong>Minimun stock:</strong> {{product.stockMin}}</p>
+    </div>
+</div>
+

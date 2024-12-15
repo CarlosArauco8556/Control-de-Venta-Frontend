@@ -1,0 +1,13 @@
+<div class = "mx-32 mb-28">
+    <p class = "text-6xl font-extrabold text-center mt-20 text-shadow">Products List</p>
+    <div class = "flex items-center justify-center h-28 gap-x-14 mt-11 mb-5">
+        <products-change-page-buttons></products-change-page-buttons>
+        <products-search-bar></products-search-bar>
+        <products-dropdown-button></products-dropdown-button>
+    </div>
+    <div class = "flex flex-wrap justify-center gap-x-10 gap-y-10 mt-16">
+        <div *ngFor = "let product of products">
+            <products-card [product] = "product"></products-card>
+        </div>
+    </div>
+</div>
