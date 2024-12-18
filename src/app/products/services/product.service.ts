@@ -3,11 +3,13 @@ import { inject, Injectable } from '@angular/core';
 import { GetProducts } from '../interfaces/getProducts';
 import { firstValueFrom } from 'rxjs';
 import { QueryParams } from '../interfaces/queryParams';
+import { LocalStorageServiceService } from '../../auth/services/local-storage-service.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+  private localStorageService: LocalStorageServiceService = inject(LocalStorageServiceService);
   baseUrl = 'http://localhost:5037/api/Product';
   baseUrl1 = 'http://localhost:5037/api/ProductManagement';
   public errors: string[] = [];
@@ -16,7 +18,8 @@ export class ProductService {
   async getAllProducts(queryParamsI: QueryParams): Promise<GetProducts[]>{
     try
     {
-      const token = localStorage.getItem('token') || 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGlkd20uY2wiLCJnaXZlbl9uYW1lIjoiYWRtaW4iLCJqdGkiOiIwMWEwODQ1MS00N2E3LTQwOGMtOGRiNC1iOWRmZDQ4Mzc4YjciLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE3MzQyMjg5OTQsImV4cCI6MTczNDMxNTM5NCwiaWF0IjoxNzM0MjI4OTk0LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUwMCJ9.ShZFPIGhy4y2WBvn6EkeWX4FmzHqnQlrc3PltoXpxPQbArUf0PZ1nU6UOZ92poLULbRWBLdcA5ENbQ5y-RSMHA';
+      const token = this.localStorageService.getVairbel('token') || 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGlkd20uY2wiLCJnaXZlbl9uYW1lIjoiYWRtaW4iLCJqdGkiOiIwMWEwODQ1MS00N2E3LTQwOGMtOGRiNC1iOWRmZDQ4Mzc4YjciLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE3MzQyMjg5OTQsImV4cCI6MTczNDMxNTM5NCwiaWF0IjoxNzM0MjI4OTk0LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUwMCJ9.ShZFPIGhy4y2WBvn6EkeWX4FmzHqnQlrc3PltoXpxPQbArUf0PZ1nU6UOZ92poLULbRWBLdcA5ENbQ5y-RSMHA';
+      console.log(token);
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       let queryParams = new HttpParams()
         if (queryParamsI.textFilter) queryParams = queryParams.set('textFilter', queryParamsI.textFilter);

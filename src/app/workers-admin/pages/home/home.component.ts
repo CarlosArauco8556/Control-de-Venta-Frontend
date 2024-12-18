@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { GetProductsComponent } from '../../../products/pages/get-products/get-products.component';
 import { DeleteProductComponent } from "../../../products/pages/delete-product/delete-product.component";
 import { AddProductComponent } from "../../../products/pages/add-product/add-product.component";
 import { UpdateProductComponent } from "../../../products/pages/update-product/update-product.component";
+import { LocalStorageServiceService } from '../../../auth/services/local-storage-service.service';
 
 @Component({
   selector: 'app-home',
@@ -13,11 +14,14 @@ import { UpdateProductComponent } from "../../../products/pages/update-product/u
 })
 export class HomeComponent {
   
+  private localStorageService: LocalStorageServiceService = inject(LocalStorageServiceService);
+  
   isProductOpen: boolean;
   isUserOpen: boolean;
   isInvoicesOpen: boolean;
   isSuppliersOpen: boolean;
   currentComponent: string = '';
+  isLogued: boolean = this.localStorageService.getVairbel('token') ? true : false;
   
   constructor() 
   {
