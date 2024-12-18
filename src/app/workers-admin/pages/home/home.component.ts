@@ -1,10 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { GetProductsComponent } from '../../../products/pages/get-products/get-products.component';
+import { DeleteProductComponent } from "../../../products/pages/delete-product/delete-product.component";
+import { AddProductComponent } from "../../../products/pages/add-product/add-product.component";
+import { UpdateProductComponent } from "../../../products/pages/update-product/update-product.component";
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule, GetProductsComponent, DeleteProductComponent, AddProductComponent, UpdateProductComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -14,6 +17,7 @@ export class HomeComponent {
   isUserOpen: boolean;
   isInvoicesOpen: boolean;
   isSuppliersOpen: boolean;
+  currentComponent: string = '';
   
   constructor() 
   {
@@ -21,6 +25,10 @@ export class HomeComponent {
     this.isUserOpen = false;
     this.isInvoicesOpen = false;
     this.isSuppliersOpen = false;
+  }
+
+  loadComponent(component: string) {
+    this.currentComponent = component;
   }
 
   openProductMenu()

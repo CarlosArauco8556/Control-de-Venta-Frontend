@@ -1,17 +1,28 @@
-<button class = "text-lg font-bold flex items-center
-    bg-gradient-to-r from-cyan-300 to-cyan-600 border-4 border-black rounded-xl p-1" 
-    (click)="toggleDropdown()">Order by price         
-    <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+<!-- Botón "Order by price" -->
+<button 
+    (click)="toggleDropdown()" 
+    class="flex items-center justify-between bg-indigo-600 text-white font-semibold py-3 px-6 rounded-xl shadow-lg hover:bg-indigo-700 transition-all duration-200 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+    <span class="text-lg">Order by price</span>
+    <svg class="w-3.5 h-3.5 ml-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
     </svg>
 </button>
 
-<div class = "flex flex-col items-center justify-centerw-24 text-base font-bold bg-gray-200 rounded-lg border-2 border-black" 
-*ngIf="isOpen">
-    <button class = "w-40 hover:bg-cyan-400 "
-    (click)="selectOption(' ----- ')"> ----- </button>
-    <button class = "w-40 hover:bg-cyan-400 "
-    (click)="selectOption('Ascending')">Ascending</button>
-    <button class = "w-40 hover:bg-cyan-400 "
-    (click)="selectOption('Descending')">Descending</button>
+<!-- Dropdown Menu -->
+<div *ngIf="isOpen" class="flex flex-col items-center justify-center w-48 bg-gray-800 text-white rounded-lg shadow-xl border-2 border-gray-700 mt-2 space-y-2">
+    <button 
+        class="w-full text-left py-2 px-4 rounded-lg hover:bg-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-200 ease-in-out" 
+        (click)="selectOption(' ----- ')">
+        ----- 
+    </button>
+    <button 
+        class="w-full text-left py-2 px-4 rounded-lg hover:bg-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-200 ease-in-out" 
+        (click)="selectOption('Ascending')">
+        Ascending
+    </button>
+    <button 
+        class="w-full text-left py-2 px-4 rounded-lg hover:bg-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-200 ease-in-out" 
+        (click)="selectOption('Descending')">
+        Descending
+    </button>
 </div>
