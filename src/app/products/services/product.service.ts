@@ -14,13 +14,13 @@ export class ProductService {
   baseUrl1 = 'http://localhost:5037/api/ProductManagement';
   public errors: string[] = [];
   private http = inject(HttpClient);
+  private token: string = this.localStorageService.getVairbel('token') || '';
 
   async getAllProducts(queryParamsI: QueryParams): Promise<GetProducts[]>{
     try
     {
-      const token = this.localStorageService.getVairbel('token') || 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGlkd20uY2wiLCJnaXZlbl9uYW1lIjoiYWRtaW4iLCJqdGkiOiIwMWEwODQ1MS00N2E3LTQwOGMtOGRiNC1iOWRmZDQ4Mzc4YjciLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE3MzQyMjg5OTQsImV4cCI6MTczNDMxNTM5NCwiaWF0IjoxNzM0MjI4OTk0LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUwMCJ9.ShZFPIGhy4y2WBvn6EkeWX4FmzHqnQlrc3PltoXpxPQbArUf0PZ1nU6UOZ92poLULbRWBLdcA5ENbQ5y-RSMHA';
-      console.log(token);
-      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+      console.log(this.token);
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
       let queryParams = new HttpParams()
         if (queryParamsI.textFilter) queryParams = queryParams.set('textFilter', queryParamsI.textFilter);
         if (queryParamsI.sortByPrice) queryParams = queryParams.set('sortByPrice', queryParamsI.sortByPrice);
@@ -44,8 +44,7 @@ export class ProductService {
   {
     try
     {
-      const token = localStorage.getItem('token') || 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGlkd20uY2wiLCJnaXZlbl9uYW1lIjoiYWRtaW4iLCJqdGkiOiIwMWEwODQ1MS00N2E3LTQwOGMtOGRiNC1iOWRmZDQ4Mzc4YjciLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE3MzQyMjg5OTQsImV4cCI6MTczNDMxNTM5NCwiaWF0IjoxNzM0MjI4OTk0LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUwMCJ9.ShZFPIGhy4y2WBvn6EkeWX4FmzHqnQlrc3PltoXpxPQbArUf0PZ1nU6UOZ92poLULbRWBLdcA5ENbQ5y-RSMHA';
-      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
       const response = await firstValueFrom(this.http.post<GetProducts>(this.baseUrl1, product, { headers: headers }));
       return Promise.resolve(response);
     } catch (error){
@@ -60,8 +59,7 @@ export class ProductService {
   {
     try
     {
-      const token = localStorage.getItem('token') || 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGlkd20uY2wiLCJnaXZlbl9uYW1lIjoiYWRtaW4iLCJqdGkiOiIwMWEwODQ1MS00N2E3LTQwOGMtOGRiNC1iOWRmZDQ4Mzc4YjciLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE3MzQyMjg5OTQsImV4cCI6MTczNDMxNTM5NCwiaWF0IjoxNzM0MjI4OTk0LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUwMCJ9.ShZFPIGhy4y2WBvn6EkeWX4FmzHqnQlrc3PltoXpxPQbArUf0PZ1nU6UOZ92poLULbRWBLdcA5ENbQ5y-RSMHA';
-      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
       const response = await firstValueFrom(this.http.put<GetProducts>(`${this.baseUrl1}/${id}`, product, { headers: headers}));
       return Promise.resolve(response);
     } catch (error){
@@ -76,8 +74,7 @@ export class ProductService {
   {
     try
     {
-      const token = localStorage.getItem('token') || 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGlkd20uY2wiLCJnaXZlbl9uYW1lIjoiYWRtaW4iLCJqdGkiOiIwMWEwODQ1MS00N2E3LTQwOGMtOGRiNC1iOWRmZDQ4Mzc4YjciLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE3MzQyMjg5OTQsImV4cCI6MTczNDMxNTM5NCwiaWF0IjoxNzM0MjI4OTk0LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUwMCJ9.ShZFPIGhy4y2WBvn6EkeWX4FmzHqnQlrc3PltoXpxPQbArUf0PZ1nU6UOZ92poLULbRWBLdcA5ENbQ5y-RSMHA';
-      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
       const response = await firstValueFrom(this.http.delete<GetProducts>(`${this.baseUrl1}/${id}`, { headers: headers}));
       return Promise.resolve(response);
     } catch (error){
