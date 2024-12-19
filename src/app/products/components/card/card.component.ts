@@ -22,7 +22,7 @@ export class CardComponent {
   addProductToInvoice(item: {productId: number, quantity: number}): void {
     this.productService.addProductToInvoice(item).subscribe({
       next: (response) => {
-        console.log('Product added to invoice:', response);
+        console.log('Product added to invoice');
       },
       error: (error) => {
         console.error('Error adding product to invoice:', error);

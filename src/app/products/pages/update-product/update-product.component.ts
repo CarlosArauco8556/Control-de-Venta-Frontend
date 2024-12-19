@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
 export class UpdateProductComponent {
   productService: ProductService = inject(ProductService);
   getProductsComponent: GetProductsComponent = inject(GetProductsComponent);
-  product: GetProducts = { name: '', price: 0, discountPercentage: 0, stock: 0, stockMin: 0};
+  product: GetProducts = { id: 0, name: '', price: 0, discountPercentage: 0, stock: 0, stockMin: 0};
   errorMessages: string[] = [];
   error: boolean = false;
   productIsUpdated: boolean = false;

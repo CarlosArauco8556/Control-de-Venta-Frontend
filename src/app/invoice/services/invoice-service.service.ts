@@ -18,13 +18,19 @@ export class InvoiceServiceService {
 
   async createInvoice(invoiceDto: InvoiceDto): Promise<Invoice> {
     try {
-      const response = await firstValueFrom(this.http.post<Invoice>(`${this.baseUrl}/api/Invoice`, invoiceDto));
-      return Promise.resolve(response);
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+      const response = await firstValueFrom(
+        this.http.post<Invoice>(`${this.baseUrl}/api/Invoice`, invoiceDto, {headers: headers})
+      );
+      return response;  // Devolvemos la respuesta como un Invoice
     } catch (error) {
-      console.log('Error en createInvoice', error);
+      console.log('Error en createInvoice:', error);
       let e = error as HttpErrorResponse;
+      // Agregamos el mensaje de error en el arreglo
       this.errors.push(e.message);
-      return Promise.reject(error);
+
+      // En caso de error, puedes decidir si devolver un mensaje de error o simplemente rechazar
+      return Promise.reject('Error al crear la factura: ' + e.message);
     }
   }
 

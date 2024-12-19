@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 export class AddProductComponent implements OnInit{
   productService: ProductService = inject(ProductService);
   getProductsComponent: GetProductsComponent = inject(GetProductsComponent); 
-  product: GetProducts = {name: 'string', price: 0, discountPercentage: 0, stock: 0, stockMin: 0};
+  product: GetProducts = {id: 0, name: 'string', price: 0, discountPercentage: 0, stock: 0, stockMin: 0};
   productIsAdded: boolean = false;
   forms: FormGroup = new FormGroup({});
   error: boolean = false;

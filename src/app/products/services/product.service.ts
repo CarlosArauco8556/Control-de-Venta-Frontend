@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { GetProducts } from '../interfaces/getProducts';
-import { firstValueFrom, Observable } from 'rxjs';
+import { firstValueFrom, Observable, throwError } from 'rxjs';
 import { QueryParams } from '../interfaces/queryParams';
 import { LocalStorageServiceService } from '../../auth/services/local-storage-service.service';
 
@@ -87,13 +87,13 @@ export class ProductService {
   }
 
   addProductToInvoice(item: { productId: number, quantity: number }): Observable<void> {
-    const token = localStorage.getItem('token');
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
     return this.http.post<void>(`${this.baseUrl2}/${item.productId}/${item.quantity}`, {}, {
         headers: headers,
         withCredentials: true  // Asegúrate de que las cookies se envíen con la solicitud
     });
- }
+  }
  
 
 }

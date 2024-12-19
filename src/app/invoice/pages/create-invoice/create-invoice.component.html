@@ -1,6 +1,6 @@
 <div class="flex flex-col min-h-screen">
     <div class="flex-grow flex justify-center items-center">
-        <form class="w-full max-w-sm p-4 bg-white rounded-lg shadow-md flex flex-col">
+        <form class="w-full max-w-sm p-4 bg-white rounded-lg shadow-md flex flex-col" [formGroup]="forms" (ngSubmit)="onSubmit()">
             <div class="mb-4">
                 <label for="name" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
                 <input type="text" id="name" formControlName="name" class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="john doe" required />
@@ -18,14 +18,23 @@
                 <input type="text" id="phone" formControlName="phoneNumber" class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="57125073" required />
             </div>
             <div class="mb-4">
-                <label for="password" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Contraseña</label>
-                <input type="password" id="password" formControlName="password" class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="•••••••••" required />
+                <label for="description" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Descripción</label>
+                <input type="text" id="description" formControlName="description" class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white" required />
             </div>
-            <div class="mb-4">
-                <label for="confirmPassword" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Confirmar Contraseña</label>
-                <input type="password" id="confirmPassword" formControlName="confirmPassword" class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="•••••••••" required />
-            
-            </div>
+            <div class="mb-5">
+                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="paymentMethod">Método de pago</label>
+                <select 
+                  id="paymentMethod" 
+                  name="paymentMethod" 
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" 
+                  required 
+                  formControlName="paymentMethod">
+                  <option value="" disabled selected>Seleccione una opción</option>
+                  <option [value]="1">Efectivo</option>
+                  <option [value]="2">Transferencia</option>
+                </select>
+              </div>
+              
             <button 
                 type="submit" 
                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" 
