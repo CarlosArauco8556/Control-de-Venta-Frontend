@@ -1,18 +1,34 @@
-<div class = "flex items-center gap-x-10">  
-    <form class = "w-96 mx-auto" (submit) = "filterProducts(searchImput.value); $event.preventDefault()">
-        <label for = "default-search" class = "text-lg sr-only">Search</label>
-        <div class = "relative">
-            <div class = "absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+<div class="flex items-center gap-x-10">  
+    <!-- Formulario de búsqueda -->
+    <form class="w-96 mx-auto" (submit)="filterProducts(searchImput.value); $event.preventDefault()">
+        <label for="default-search" class="text-lg sr-only">Search</label>
+        <div class="relative">
+            <!-- Icono de búsqueda -->
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                 <svg class="w-4 h-4 text-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                 </svg>
             </div>
+            <!-- Campo de búsqueda -->
             <input type="search" id="default-search" #searchImput class="block w-full p-4 ps-10 text-lg text-gray-900 border border-black rounded-lg bg-gray-50" placeholder="Filter products" required />
-            <button type="submit" class="text-black absolute end-2.5 bottom-2.5 border-2 border-black bg-gradient-to-r from-cyan-300 to-cyan-600 hover:text-white font-bold rounded-xl text-xl px-4 py-1">Filter</button>
+            <!-- Botón de filtro -->
+            <button type="submit" class="flex items-center justify-center text-white bg-indigo-600 hover:bg-indigo-700 font-semibold py-2 px-4 rounded-lg shadow-md transition duration-200 ease-in-out absolute end-2.5 bottom-2.5">
+                <span class="mr-2">Filter</span>
+                <svg class="w-2.5 h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                </svg>
+            </button>
         </div>
     </form>
 
-    <button type = "button" class = "bg-gradient-to-r from-cyan-300 to-cyan-600 p-3 rounded-xl 
-    shadow-lg shadow-gray-700  border-4 border-black text-xl font-bold transform transition-all
-     hover:text-white active:translate-y-2" (click) = "resetFilter()">Reset filter</button>
+    <!-- Botón Reset filter -->
+    <button 
+        type="button" 
+        class="flex items-center justify-center bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-indigo-700 transition duration-200 ease-in-out"
+        (click)="resetFilter()">
+        <span class="mr-2">Reset filter</span>
+        <svg class="w-2.5 h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5-4-4-4 4"/>
+        </svg>
+    </button>
 </div>

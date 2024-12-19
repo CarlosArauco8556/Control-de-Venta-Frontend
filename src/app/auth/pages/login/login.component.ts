@@ -1,25 +1,29 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { HomeNavbarComponent } from "../../_shared/components/home-navbar/home-navbar.component";
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthServiceService } from '../../services/auth-service.service';
+import { LocalStorageServiceService } from '../../services/local-storage-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   imports: [HomeNavbarComponent, CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule],
-  providers: [AuthServiceService],
+  providers: [AuthServiceService, LocalStorageServiceService],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
   
   private authService: AuthServiceService = inject(AuthServiceService);
+  private localStorageService: LocalStorageServiceService = inject(LocalStorageServiceService);
+
   errorMessage: string[] = [];
   forms!: FormGroup;
   confirmMessage: string = '';
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit()
   {
@@ -28,8 +32,8 @@ export class LoginComponent implements OnInit {
 
   CreateForm() {
     this.forms = this.formBuilder.group({
-      email: [''],
-      password: ['']
+      email: ['', Validators.compose([Validators.required, Validators.email])],
+      password: ['', Validators.compose([Validators.required, Validators.minLength(8), Validators.maxLength(20)])]
     });
   }
 
@@ -44,8 +48,16 @@ export class LoginComponent implements OnInit {
       const response = await this.authService.login(loginDto);
 
       if (response){
-        this.errorMessage = [];
-        console.log('Usuario logueado:', response);
+        if (response.token)
+          {
+            this.errorMessage = [];
+            this.localStorageService.setVairbel('token', response.token);
+            this.localStorageService.setVairbel('user', response.email);
+            console.log('usuario:', this.localStorageService.getVairbel('user'));
+            this.router.navigate(['/home']);
+          } else {
+            console.log('Error al loguear el usuario', this.errorMessage);
+          }
       }else{
         console.log('Error al loguear el usuario', this.errorMessage);
       }

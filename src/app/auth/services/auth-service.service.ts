@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { Auth } from '../interfaces/auth-login/Auth';
 import { LoginDto } from '../interfaces/auth-login/LoginDto';
 import { firstValueFrom } from 'rxjs';
