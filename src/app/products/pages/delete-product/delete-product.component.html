@@ -1,38 +1,37 @@
-<p class = "text-6xl font-extrabold text-center mt-12">Delete Product</p>
+<p class="text-6xl font-extrabold text-center mt-12">Eliminar Producto</p>
 
-
-<div class = "flex items-center mt-16">
-    <form class = "w-96 mx-auto" (submit) = "deleteProduct(input.value); $event.preventDefault()"> 
-        <div class = "relative">
+<div class="flex items-center mt-16">
+    <form class="w-96 mx-auto" (submit)="deleteProduct(input.value); $event.preventDefault()">
+        <div class="relative">
             <input #input class="block w-full p-4 ps-10 text-lg text-gray-900 border border-black rounded-lg bg-gray-50
-            shadow-gray-600 shadow-lg" placeholder = "Product id" required />
-            <button type = "submit" class = "text-white absolute end-2.5 bottom-2.5
+            shadow-gray-600 shadow-lg" placeholder="ID del producto" required />
+            <button type="submit" class="text-white absolute end-2.5 bottom-2.5
             bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-lg px-3 py-1"
-            >Delete</button>
+            >Eliminar</button>
         </div>
     </form>
 </div>
 
-<div [ngClass] = "{'hidden' : productIsDeleted == false, 'flex' : productIsDeleted == true}" class = "flex-col justify-center items-center mt-12">
-    <div class = "w-80 h-10">
-        <p class = "text-center text-2xl text-black font-extrabold">PRODUCT DELETED!</p>
+<div [ngClass]="{'hidden' : productIsDeleted == false, 'flex' : productIsDeleted == true}" class="flex-col justify-center items-center mt-12">
+    <div class="w-80 h-10">
+        <p class="text-center text-2xl text-black font-extrabold">¡PRODUCTO ELIMINADO!</p>
     </div>
 
-    <div class = "w-64 h-48 mt-6 mb-24 rounded-xl border-2 border-black bg-red-500 shadow-lg shadow-gray-800">
-        <p class = "text-xl text-center font-bold mt-3 mb-3 text-black"><strong>{{product.name}}</strong></p>
-    
-        <hr class = "border-t-2 w-full border-black">
-    
-        <div class = "flex flex-col justify-center p-5">
-            <p class = "text-base"><strong>Price:</strong> $ {{product.price}}</p>
-            <p class = "text-base"><strong>Discount percentage:</strong> % {{product.discountPercentage}}</p>
-            <p class = "text-base"><strong>Stock:</strong> {{product.stock}}</p>
-            <p class = "text-base"><strong>Minimun stock:</strong> {{product.stockMin}}</p>
+    <div class="w-64 h-48 mt-6 mb-24 rounded-xl border-2 border-black bg-red-500 shadow-lg shadow-gray-800">
+        <p class="text-xl text-center font-bold mt-3 mb-3 text-black"><strong>{{product.name}}</strong></p>
+
+        <hr class="border-t-2 w-full border-black">
+
+        <div class="flex flex-col justify-center p-5">
+            <p class="text-base"><strong>Precio:</strong> $ {{product.price}}</p>
+            <p class="text-base"><strong>Descuento:</strong> % {{product.discountPercentage}}</p>
+            <p class="text-base"><strong>Stock:</strong> {{product.stock}}</p>
+            <p class="text-base"><strong>Stock mínimo:</strong> {{product.stockMin}}</p>
         </div>
     </div>
 </div>
 
-<div class = "flex flex-col items-center">
+<div class="flex flex-col items-center">
     <div *ngIf="error == true" class="flex flex-col items-center justify-center w-96 bg-red-500 rounded-lg p-4 mt-10">
         <p class="text-white text-center text-sm font-medium">{{ getLastError() }}</p>
     </div>

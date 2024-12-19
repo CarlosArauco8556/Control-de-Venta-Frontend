@@ -1,73 +1,64 @@
-<form [formGroup] = "forms" (ngSubmit) = "addSupply()" class = "max-w-md mx-auto border-2 border-black p-10 mt-12 mb-16 rounded-lg shadow-lg shadow-gray-400">
+<form [formGroup]="forms" (ngSubmit)="addSupply()" class="max-w-md mx-auto border-2 border-black p-10 mt-12 mb-16 rounded-lg shadow-lg shadow-gray-400">
+    <p class="text-2xl text-center font-extrabold">Añadir Suministros</p>
 
-    <p class = "text-2xl text-center font-extrabold">Add Supply Form</p>
+    <div class="mt-5 mb-2">
+        <label class="block text-sm font-medium text-gray-900">ID del proveedor</label>
+        <input type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="Ej: 1" formControlName="supplierId" required/>
 
-    <div class = "mt-5 mb-2">
-        <label class = "block text-sm font-medium text-gray-900">Supplier Id</label>
-        <input type = "number" class = "bg-gray-50 border border-gray-300 text-gray-900  text-sm rounded-lg block w-full p-2.5" 
-        placeholder = "Ex: 1" formControlName = "supplierId" required/>
-
-        <div *ngIf = "this.forms.get('supplierId')?.invalid && this.forms.get('supplierId')?.touched">
-            <p class="text-red-500 text-sm font-medium"> Field "Supplier Id" is required</p>
+        <div *ngIf="this.forms.get('supplierId')?.invalid && this.forms.get('supplierId')?.touched">
+            <p class="text-red-500 text-sm font-medium"> El campo "ID del proveedor" es requerido</p>
         </div>
     </div>
 
-    <div class = "mb-2">
-        <label class = "block text-sm font-medium text-gray-900">Product Id</label>
-        <input type = "number" class = "bg-gray-50 border border-gray-300 text-gray-900  text-sm rounded-lg block w-full p-2.5"
-        placeholder = "Ex: 21" formControlName = "productId" required/>
+    <div class="mb-2">
+        <label class="block text-sm font-medium text-gray-900">ID del producto</label>
+        <input type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="Ej: 21" formControlName="productId" required/>
 
-        <div *ngIf = "this.forms.get('productId')?.invalid && this.forms.get('productId')?.touched">
-            <p class="text-red-500 text-sm font-medium"> Field "Product Id" is required</p>
+        <div *ngIf="this.forms.get('productId')?.invalid && this.forms.get('productId')?.touched">
+            <p class="text-red-500 text-sm font-medium"> El campo "ID del producto" es requerido</p>
         </div>
     </div>
 
-    <div class = "mb-2">
-        <label class = "block text-sm font-medium text-gray-900">Quantity</label>
-        <input type = "number" class = "bg-gray-50 border border-gray-300 text-gray-900  text-sm rounded-lg block w-full p-2.5"
-        placeholder = "Ex: 300" formControlName = "quantity" required/>
+    <div class="mb-2">
+        <label class="block text-sm font-medium text-gray-900">Cantidad</label>
+        <input type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="Ej: 300" formControlName="quantity" required/>
 
-        <div *ngIf = "this.forms.get('quantity')?.invalid && this.forms.get('quantity')?.touched">
-            <p class="text-red-500 text-sm font-medium"> Field "Quantity" is required</p>
+        <div *ngIf="this.forms.get('quantity')?.invalid && this.forms.get('quantity')?.touched">
+            <p class="text-red-500 text-sm font-medium"> El campo "Cantidad" es requerido</p>
         </div>
     </div>
 
-    <div class = "mb-2">
-        <label class = "block mb-2 text-sm font-medium text-gray-900">Order date</label>
-        <input type = "date" class = "bg-gray-50 border border-gray-300 text-gray-900  text-sm rounded-lg block w-full p-2.5"
-        placeholder = "Ex: 2024-02-21" formControlName = "orderDate" required/>
+    <div class="mb-2">
+        <label class="block mb-2 text-sm font-medium text-gray-900">Fecha de pedido</label>
+        <input type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="Ej: 2024-02-21" formControlName="orderDate" required/>
 
-        <div *ngIf = "this.forms.get('orderDate')?.invalid && this.forms.get('orderDate')?.touched">
-            <p class="text-red-500 text-sm font-medium"> Field "Order date" is required</p>
+        <div *ngIf="this.forms.get('orderDate')?.invalid && this.forms.get('orderDate')?.touched">
+            <p class="text-red-500 text-sm font-medium"> El campo "Fecha de pedido" es requerido</p>
         </div>
     </div>
 
-    <div class = "mb-2">
-        <label class = "block text-sm font-medium text-gray-900">Delivery date</label>
-        <input type = "date" class = "bg-gray-50 border border-gray-300 text-gray-900  text-sm rounded-lg block w-full p-2.5"
-        placeholder = "Ex: 2024-12-19" formControlName = "deliveryDate" required/>
+    <div class="mb-2">
+        <label class="block text-sm font-medium text-gray-900">Fecha de entrega</label>
+        <input type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="Ej: 2024-12-19" formControlName="deliveryDate" required/>
 
-        <div *ngIf = "this.forms.get('deliveryDate')?.invalid && this.forms.get('deliveryDate')?.touched">
-            <p class="text-red-500 text-sm font-medium"> Field "deliveryDate" is required</p>
+        <div *ngIf="this.forms.get('deliveryDate')?.invalid && this.forms.get('deliveryDate')?.touched">
+            <p class="text-red-500 text-sm font-medium"> El campo "Fecha de entrega" es requerido</p>
         </div>
     </div>
 
-    <button type = "submit" class = "text-white bg-blue-700 hover:bg-blue-800 
-    font-medium rounded-lg text-lg w-full sm:w-full py-2.5 text-center mt-5 shadow-lg shadow-gray-600"
-    >Create</button>
-
+    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-lg w-full sm:w-full py-2.5 text-center mt-5 shadow-lg shadow-gray-600">Crear</button>
 </form>
 
-<div [ngClass] = "{'hidden' : !error, 'flex' : error, 'overlay': error}" class = "flex-col items-center justify-center">
-    <div *ngFor = "let errors of errorMessages">
-        <div class = "w-96 bg-red-500 rounded-lg p-4 mb-1">
-            <p class = "text-white text-center text-xs font-medium">{{errors}}</p>
+<div [ngClass]="{'hidden': !error, 'flex': error, 'overlay': error}" class="flex-col items-center justify-center">
+    <div *ngFor="let errors of errorMessages">
+        <div class="w-96 bg-red-500 rounded-lg p-4 mb-1">
+            <p class="text-white text-center text-xs font-medium">{{errors}}</p>
         </div>
     </div>
 </div>
 
-<div [ngClass] = "{'hidden' : !supplyIsAdded, 'flex' : supplyIsAdded, 'overlay': supplyIsAdded}" class = "flex-col items-center justify-center">
-    <div class = "bg-green-400 rounded-lg p-7">
-        <p class = "text-white text-center text-2xl font-medium">Supply added!</p>
+<div [ngClass]="{'hidden': !supplyIsAdded, 'flex': supplyIsAdded, 'overlay': supplyIsAdded}" class="flex-col items-center justify-center">
+    <div class="bg-green-400 rounded-lg p-7">
+        <p class="text-white text-center text-2xl font-medium">¡Suministro agregado!</p>
     </div>
 </div>

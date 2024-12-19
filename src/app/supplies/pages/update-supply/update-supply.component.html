@@ -1,70 +1,70 @@
 <form [formGroup] = "forms" (ngSubmit) = "updateSupply()" class = "max-w-md mx-auto border-2 border-black p-10 mt-12 mb-16 rounded-lg shadow-lg shadow-gray-400">
 
-    <p class = "text-2xl text-center font-extrabold">Update Supply Form</p>
+    <p class = "text-2xl text-center font-extrabold">Actualizar de Suministro</p>
 
     <div class = "mt-5 mb-2">
-        <label class = "block text-sm font-medium text-gray-900">Supply Id to be updated</label>
+        <label class = "block text-sm font-medium text-gray-900">ID del Suministro a Actualizar</label>
         <input type = "number" class = "bg-gray-50 border border-gray-300 text-gray-900  text-sm rounded-lg block w-full p-2.5" 
-        placeholder = "Ex: 1" formControlName = "id" required/>
+        placeholder = "Ej: 1" formControlName = "id" required/>
 
         <div *ngIf = "this.forms.get('id')?.invalid && this.forms.get('id')?.touched">
-            <p class="text-red-500 text-sm font-medium"> Field "Supply Id" is required</p>
+            <p class="text-red-500 text-sm font-medium"> El campo "ID del Suministro" es obligatorio</p>
         </div>
     </div>
 
     <div class = "mb-2">
-        <label class = "block text-sm font-medium text-gray-900">Supplier Id</label>
+        <label class = "block text-sm font-medium text-gray-900">ID del Proveedor</label>
         <input type = "number" class = "bg-gray-50 border border-gray-300 text-gray-900  text-sm rounded-lg block w-full p-2.5" 
-        placeholder = "Ex: 1" formControlName = "supplierId" required/>
+        placeholder = "Ej: 1" formControlName = "supplierId" required/>
 
         <div *ngIf = "this.forms.get('supplierId')?.invalid && this.forms.get('supplierId')?.touched">
-            <p class="text-red-500 text-sm font-medium"> Field "Supplier Id" is required</p>
+            <p class="text-red-500 text-sm font-medium"> El campo "ID del Proveedor" es obligatorio</p>
         </div>
     </div>
 
     <div class = "mb-2">
-        <label class = "block text-sm font-medium text-gray-900">Product Id</label>
+        <label class = "block text-sm font-medium text-gray-900">ID del Producto</label>
         <input type = "number" class = "bg-gray-50 border border-gray-300 text-gray-900  text-sm rounded-lg block w-full p-2.5"
-        placeholder = "Ex: 21" formControlName = "productId" required/>
+        placeholder = "Ej: 21" formControlName = "productId" required/>
 
         <div *ngIf = "this.forms.get('productId')?.invalid && this.forms.get('productId')?.touched">
-            <p class="text-red-500 text-sm font-medium"> Field "Product Id" is required</p>
+            <p class="text-red-500 text-sm font-medium"> El campo "ID del Producto" es obligatorio</p>
         </div>
     </div>
 
     <div class = "mb-2">
-        <label class = "block text-sm font-medium text-gray-900">Quantity</label>
+        <label class = "block text-sm font-medium text-gray-900">Cantidad</label>
         <input type = "number" class = "bg-gray-50 border border-gray-300 text-gray-900  text-sm rounded-lg block w-full p-2.5"
-        placeholder = "Ex: 300" formControlName = "quantity" required/>
+        placeholder = "Ej: 300" formControlName = "quantity" required/>
 
         <div *ngIf = "this.forms.get('quantity')?.invalid && this.forms.get('quantity')?.touched">
-            <p class="text-red-500 text-sm font-medium"> Field "Quantity" is required</p>
+            <p class="text-red-500 text-sm font-medium"> El campo "Cantidad" es obligatorio</p>
         </div>
     </div>
 
     <div class = "mb-2">
-        <label class = "block mb-2 text-sm font-medium text-gray-900">Order date</label>
+        <label class = "block mb-2 text-sm font-medium text-gray-900">Fecha de Pedido</label>
         <input type = "date" class = "bg-gray-50 border border-gray-300 text-gray-900  text-sm rounded-lg block w-full p-2.5"
-        placeholder = "Ex: 2024-02-21" formControlName = "orderDate" required/>
+        placeholder = "Ej: 2024-02-21" formControlName = "orderDate" required/>
 
         <div *ngIf = "this.forms.get('orderDate')?.invalid && this.forms.get('orderDate')?.touched">
-            <p class="text-red-500 text-sm font-medium"> Field "Order date" is required</p>
+            <p class="text-red-500 text-sm font-medium"> El campo "Fecha de Pedido" es obligatorio</p>
         </div>
     </div>
 
     <div class = "mb-2">
-        <label class = "block text-sm font-medium text-gray-900">Delivery date</label>
+        <label class = "block text-sm font-medium text-gray-900">Fecha de Entrega</label>
         <input type = "date" class = "bg-gray-50 border border-gray-300 text-gray-900  text-sm rounded-lg block w-full p-2.5"
-        placeholder = "Ex: 2024-12-19" formControlName = "deliveryDate" required/>
+        placeholder = "Ej: 2024-12-19" formControlName = "deliveryDate" required/>
 
         <div *ngIf = "this.forms.get('deliveryDate')?.invalid && this.forms.get('deliveryDate')?.touched">
-            <p class="text-red-500 text-sm font-medium"> Field "deliveryDate" is required</p>
+            <p class="text-red-500 text-sm font-medium"> El campo "Fecha de Entrega" es obligatorio</p>
         </div>
     </div>
 
     <button type = "submit" class = "text-white bg-blue-700 hover:bg-blue-800 
     font-medium rounded-lg text-lg w-full sm:w-full py-2.5 text-center mt-5 shadow-lg shadow-gray-600"
-    >Update</button>
+    >Actualizar</button>
 
 </form>
 
@@ -78,6 +78,6 @@
 
 <div [ngClass] = "{'hidden' : !supplyIsUpdated, 'flex' : supplyIsUpdated, 'overlay': supplyIsUpdated}" class = "flex-col items-center justify-center">
     <div class = "bg-green-400 rounded-lg p-7">
-        <p class = "text-white text-center text-2xl font-medium">Supply updated!</p>
+        <p class = "text-white text-center text-2xl font-medium">¡Suministro actualizado!</p>
     </div>
 </div>
