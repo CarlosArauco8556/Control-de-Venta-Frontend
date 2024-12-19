@@ -21,6 +21,7 @@ export class GetProductsComponent {
   public products: GetProducts[] = [];
   public queryParamsI: QueryParams = {textFilter: "", sortByPrice: "", IsDescending: null, pageNumber: 1, pageSize: 10};
 
+  public producId: number = 0;
 
   ngOnInit(){
     this.getProducts();
@@ -33,4 +34,5 @@ export class GetProductsComponent {
       console.log("Products obtained: ", this.products);
     });
   }
+
 }

@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { GetProducts } from '../interfaces/getProducts';
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom, Observable } from 'rxjs';
 import { QueryParams } from '../interfaces/queryParams';
 import { LocalStorageServiceService } from '../../auth/services/local-storage-service.service';
 
@@ -12,6 +12,7 @@ export class ProductService {
   private localStorageService: LocalStorageServiceService = inject(LocalStorageServiceService);
   baseUrl = 'http://localhost:5037/api/Product';
   baseUrl1 = 'http://localhost:5037/api/ProductManagement';
+  baseUrl2 = 'http://localhost:5037/api/InvoiceItems';
   public errors: string[] = [];
   private http = inject(HttpClient);
   private token: string = this.localStorageService.getVairbel('token') || '';
@@ -70,7 +71,7 @@ export class ProductService {
     }
   }
 
-  async  deleteProduct(id: number): Promise<GetProducts>
+  async deleteProduct(id: number): Promise<GetProducts>
   {
     try
     {
@@ -84,4 +85,15 @@ export class ProductService {
       return Promise.reject(error);
     }
   }
+
+  addProductToInvoice(item: { productId: number, quantity: number }): Observable<void> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.post<void>(`${this.baseUrl2}/${item.productId}/${item.quantity}`, {}, {
+        headers: headers,
+        withCredentials: true  // Asegúrate de que las cookies se envíen con la solicitud
+    });
+ }
+ 
+
 }

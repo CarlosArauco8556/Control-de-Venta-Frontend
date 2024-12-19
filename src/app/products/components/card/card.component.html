@@ -1,12 +1,25 @@
-<div class = "w-80 h-60 rounded-xl border-4 border-black bg-gradient-to-b from-cyan-300 to-cyan-600 shadow-lg shadow-gray-800">
-    <p class = "text-xl text-center font-bold mt-5 mb-5 text-black"><strong>{{product.name}}</strong></p>
-
-    <hr class = "border-t-4 w-full border-black">
-
-    <div class = "flex flex-col justify-center p-6">
-        <p class = "text-lg"><strong>Price:</strong> $ {{product.price}}</p>
-        <p class = "text-lg"><strong>Discount percentage:</strong> % {{product.discountPercentage}}</p>
-        <p class = "text-lg"><strong>Stock:</strong> {{product.stock}}</p>
-        <p class = "text-lg"><strong>Minimun stock:</strong> {{product.stockMin}}</p>
+<div class="w-80 h-auto rounded-xl border-4 border-black shadow-lg shadow-gray-800 bg-white">
+    <p class="text-xl text-center font-bold mt-5 mb-5 text-black"><strong>{{product.name}}</strong></p>
+  
+    <hr class="border-t-4 w-full border-black">
+  
+    <div class="flex flex-col justify-between p-6 space-y-3">
+      <p class="text-lg"><strong>ID:</strong> {{product.id}}</p>
+      <p class="text-lg"><strong>Price:</strong> $ {{product.price}}</p>
+      <p class="text-lg"><strong>Discount percentage:</strong> % {{product.discountPercentage}}</p>
+      <p class="text-lg"><strong>Stock:</strong> {{product.stock}}</p>
+      <p class="text-lg"><strong>Minimum stock:</strong> {{product.stockMin}}</p>
+  
+      <!-- Botón -->
+      <button 
+        type="button" 
+        class="w-full mt-4 flex items-center justify-center bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-indigo-700 transition duration-200 ease-in-out"
+        (click)="addProductToInvoice({productId: product.id, quantity: 1})">
+        <svg class="w-4 h-4 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5-4-4-4 4" />
+        </svg>
+        Agregar a factura
+      </button>
     </div>
-</div>
+  </div>
+  

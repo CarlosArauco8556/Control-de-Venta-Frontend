@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
 export class DeleteProductComponent {
   public productService: ProductService = inject(ProductService)
   public getProductsComponent: GetProductsComponent = inject(GetProductsComponent);
-  public product: GetProducts = { name: '', price: 0, discountPercentage: 0, stock: 0, stockMin: 0 };
+  public product: GetProducts = { id: 0, name: '', price: 0, discountPercentage: 0, stock: 0, stockMin: 0 };
 
   deleteProduct(input: string)
   {

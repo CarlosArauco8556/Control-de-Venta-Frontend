@@ -1,4 +1,5 @@
 export interface GetProducts {
+    id:                 number;
     name:               string;
     price:              number;
     discountPercentage: number;
