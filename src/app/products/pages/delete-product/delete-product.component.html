@@ -1,13 +1,13 @@
-<p class = "text-6xl font-extrabold text-center mt-16 text-shadow">Delete Product</p>
+<p class = "text-6xl font-extrabold text-center mt-12">Delete Product</p>
 
 
 <div class = "flex items-center mt-16">
     <form class = "w-96 mx-auto" (submit) = "deleteProduct(input.value); $event.preventDefault()"> 
         <div class = "relative">
             <input #input class="block w-full p-4 ps-10 text-lg text-gray-900 border border-black rounded-lg bg-gray-50
-            shadow-gray-800 shadow-lg" placeholder = "Product id" required />
-            <button type = "submit" class = "text-black absolute end-2.5 bottom-2.5 border-2 border-black 
-            bg-gradient-to-r from-cyan-300 to-cyan-600 hover:text-white font-bold rounded-xl text-xl px-4 py-1"
+            shadow-gray-600 shadow-lg" placeholder = "Product id" required />
+            <button type = "submit" class = "text-white absolute end-2.5 bottom-2.5
+            bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-lg px-3 py-1"
             >Delete</button>
         </div>
     </form>
@@ -17,16 +17,17 @@
     <div class = "w-80 h-10">
         <p class = "text-center text-2xl text-black font-extrabold">PRODUCT DELETED!</p>
     </div>
-    <div class = "w-80 h-60 mt-6 mb-24 rounded-xl border-4 border-black bg-gradient-to-b from-red-400 to-red-700 shadow-lg shadow-gray-800">
-        <p class = "text-xl text-center font-bold mt-5 mb-5 text-black"><strong>{{product.name}}</strong></p>
 
-        <hr class = "border-t-4 w-full border-black">
-
-        <div class = "flex flex-col justify-center p-6">
-            <p class = "text-lg"><strong>Price:</strong> $ {{product.price}}</p>
-            <p class = "text-lg"><strong>Discount percentage:</strong> % {{product.discountPercentage}}</p>
-            <p class = "text-lg"><strong>Stock:</strong> {{product.stock}}</p>
-            <p class = "text-lg"><strong>Minimun stock:</strong> {{product.stockMin}}</p>
+    <div class = "w-64 h-48 mt-6 mb-24 rounded-xl border-2 border-black bg-red-500 shadow-lg shadow-gray-800">
+        <p class = "text-xl text-center font-bold mt-3 mb-3 text-black"><strong>{{product.name}}</strong></p>
+    
+        <hr class = "border-t-2 w-full border-black">
+    
+        <div class = "flex flex-col justify-center p-5">
+            <p class = "text-base"><strong>Price:</strong> $ {{product.price}}</p>
+            <p class = "text-base"><strong>Discount percentage:</strong> % {{product.discountPercentage}}</p>
+            <p class = "text-base"><strong>Stock:</strong> {{product.stock}}</p>
+            <p class = "text-base"><strong>Minimun stock:</strong> {{product.stockMin}}</p>
         </div>
     </div>
 </div>

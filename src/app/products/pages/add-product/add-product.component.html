@@ -1,6 +1,4 @@
-<p class = "text-6xl font-extrabold text-center mt-16 text-shadow">Add Product</p>
-
-<form [formGroup] = "forms" (ngSubmit) = "addProduct()" class = "max-w-md mx-auto border-2 border-black p-10 mt-16 mb-16 rounded-lg shadow-lg shadow-gray-400">
+<form [formGroup] = "forms" (ngSubmit) = "addProduct()" class = "max-w-md mx-auto border-2 border-black p-10 mt-12 mb-16 rounded-lg shadow-lg shadow-gray-400">
 
     <p class = "text-2xl text-center font-extrabold">Add Product Form</p>
 
@@ -54,9 +52,10 @@
         </div>
     </div>
 
-    <button type = "submit" class = "text-black bg-gradient-to-r from-cyan-300 to-cyan-600 hover:text-white 
-    font-bold rounded-lg text-xl w-full sm:w-full py-2.5 text-center border-2 border-black mt-5 shadow-lg shadow-gray-800"
+    <button type = "submit" class = "text-white bg-blue-700 hover:bg-blue-800 
+    font-medium rounded-lg text-lg w-full sm:w-full py-2.5 text-center mt-5 shadow-lg shadow-gray-600"
     >Create</button>
+
 </form>
 
 <div [ngClass] = "{'hidden' : !error, 'flex' : error, 'overlay': error}" class = "flex-col items-center justify-center">
