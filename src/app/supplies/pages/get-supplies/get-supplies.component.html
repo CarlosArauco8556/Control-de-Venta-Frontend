@@ -1,1 +1,15 @@
-<p>get-supplies works!</p>
+<div class = "mx-32 mb-28">
+
+    <p class = "text-6xl font-extrabold text-center mt-10">Get Supplies</p>
+
+    <div class = "flex items-center justify-center h-28 gap-x-8 mt-16 mb-16">
+        <supplies-change-page-buttons></supplies-change-page-buttons>
+        <supplies-search-bar></supplies-search-bar>
+        <supplies-dropdown-button></supplies-dropdown-button>
+    </div>
+    <div class = "flex flex-wrap justify-center gap-x-10 gap-y-10 mt-20">
+        <div *ngFor = "let supply of supplies">
+            <supplies-card [supply] = "supply"></supplies-card>
+        </div>
+    </div>
+</div>

@@ -21,7 +21,7 @@ export class SupplyService {
   async getAllSupplies(params: QueryParams): Promise<GetSupplies[]>
   {
     try{
-      const headers = new HttpHeaders().set('Authorization', `Bearer $(this.token)`);
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
       let queryParams = new HttpParams()
         if (params.textFilter) queryParams = queryParams.set('textFilter', params.textFilter);
         if (params.orderBy) queryParams  = queryParams.set('orderBy', params.orderBy);

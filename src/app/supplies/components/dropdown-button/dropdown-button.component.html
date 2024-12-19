@@ -1,1 +1,87 @@
-<p>dropdown-button works!</p>
+<div class = "flex items-center gap-x-2">
+    <!-- Botón "Order by" -->
+    <button 
+        (click)="toggleDropdown1()" 
+        class="flex items-center justify-center  bg-blue-700 hover:bg-blue-800 text-white font-semibold p-2 px-2 rounded-lg shadow-lg w-28">
+        <span class="text-base">Order by</span>
+        <svg class="w-3.5 h-3.5 ml-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+        </svg>
+    </button>
+
+
+    <!-- Dropdown Menu -->
+    <div *ngIf="isOpen1" class="flex flex-col items-center justify-center w-36 bg-gray-800 text-white rounded-lg shadow-lg mt-2">
+        <button 
+            class="w-full text-center rounded-lg p-1 hover:bg-gray-600 focus:outline-none transition-all duration-200 ease-in-out" 
+            (click)="selectOption1('productid')">
+            Product Id
+        </button>
+        <button 
+            class="w-full text-center rounded-lg p-1 hover:bg-gray-600 focus:outline-none transition-all duration-200 ease-in-out" 
+            (click)="selectOption1('supplierid')">
+            Supplier Id
+        </button>
+        <button 
+            class="w-full text-center rounded-lg p-1 hover:bg-gray-600 focus:outline-none transition-all duration-200 ease-in-out" 
+            (click)="selectOption1('orderdate')">
+            Order date
+        </button>
+        <button 
+            class="w-full text-center rounded-lg p-1 hover:bg-gray-600 focus:outline-none transition-all duration-200 ease-in-out" 
+            (click)="selectOption1('deliverydate')">
+            Delivery date
+        </button>
+        <button 
+            class="w-full text-center rounded-lg p-1 hover:bg-gray-600 focus:outline-none transition-all duration-200 ease-in-out" 
+            (click)="selectOption1('quantity')">
+            Quantity
+        </button>
+        <button 
+            class="w-full text-center rounded-lg p-1 hover:bg-gray-600 focus:outline-none transition-all duration-200 ease-in-out" 
+            (click)="selectOption1('totalprice')">
+            Total price
+        </button>
+        <button 
+            class="w-full text-center rounded-lg p-1 hover:bg-gray-600 focus:outline-none transition-all duration-200 ease-in-out" 
+            (click)="selectOption1('productname')">
+            Product name
+        </button>
+        <button 
+            class="w-full text-center rounded-lg p-1 hover:bg-gray-600 focus:outline-none transition-all duration-200 ease-in-out" 
+            (click)="selectOption1('suppliername')">
+            Supplier name
+        </button>
+    </div>
+
+
+    <!-- Botón "Ordenation" -->
+    <button 
+        (click)="toggleDropdown()" 
+        class="flex items-center justify-center  bg-blue-700 hover:bg-blue-800 text-white font-semibold p-2 px-2 rounded-lg shadow-lg w-32">
+        <span class="text-base">Ordenation</span>
+        <svg class="w-3.5 h-3.5 ml-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+        </svg>
+    </button>
+
+
+    <!-- Dropdown Menu -->
+    <div *ngIf="isOpen" class="flex flex-col items-center justify-center w-32 bg-gray-800 text-white rounded-lg shadow-lg mt-2">
+        <button 
+            class="w-full text-center rounded-lg p-1 hover:bg-gray-600 focus:outline-none transition-all duration-200 ease-in-out" 
+            (click)="selectOption(' ----- ')">
+            ----- 
+        </button>
+        <button 
+            class="w-full text-center rounded-lg p-1 hover:bg-gray-600 focus:outline-none transition-all duration-200 ease-in-out" 
+            (click)="selectOption('Ascending')">
+            Ascending
+        </button>
+        <button 
+            class="w-full text-center rounded-lg p-1 hover:bg-gray-600 focus:outline-none transition-all duration-200 ease-in-out" 
+            (click)="selectOption('Descending')">
+            Descending
+        </button>
+    </div>
+</div>
