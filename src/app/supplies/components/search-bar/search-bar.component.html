@@ -1,0 +1,30 @@
+<div class="flex items-center gap-x-3">  
+    <!-- Formulario de búsqueda -->
+    <form class="w-72 mx-auto" (submit)="filterProducts(searchImput.value); $event.preventDefault()">
+        <label for="default-search" class="text-lg sr-only">Search</label>
+        <div class="relative">
+            <!-- Icono de búsqueda -->
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                <svg class="w-4 h-4 text-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                </svg>
+            </div>
+            <!-- Campo de búsqueda -->
+            <input type="search" id="default-search" #searchImput class="block w-full p-4 ps-10 text-lg text-gray-900 border border-black rounded-lg bg-gray-50" placeholder="Filter supplies" required />
+            <!-- Botón de filtro -->
+            <button type="submit" class="flex items-center justify-center text-white bg-blue-700 hover:bg-blue-800 font-semibold py-2 px-4 rounded-lg shadow-md transition duration-200 ease-in-out absolute end-2.5 bottom-2.5">
+                <span class="mr-2">Filter</span>
+            </button>
+        </div>
+    </form>
+
+    <!-- Botón Reset filter -->
+    <button 
+        type="button" 
+        class="flex items-center justify-center w-24 bg-blue-700 hover:bg-blue-800 p-2 rounded-lg
+        text-base font-medium text-white transform transition-all
+       active:translate-y-2"
+        (click)="resetFilter()">
+        <span class="mr-2">Reset filter</span>
+    </button>
+</div>

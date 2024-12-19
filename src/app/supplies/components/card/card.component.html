@@ -1,0 +1,14 @@
+<div class = "w-96 h-64 rounded-xl border-2 border-black bg-cyan-200 shadow-lg shadow-gray-800">
+    <p class = "text-xl text-center font-bold mt-3 mb-3 text-black"><strong>{{supply.supplyName}}</strong> | <strong>{{supply.productName}}</strong></p>
+
+    <hr class = "border-t-2 w-full border-black">
+
+    <div class = "flex flex-col justify-center p-5">
+        <p class = "text-base"><strong>Product Id: </strong>{{supply.productId}}</p>
+        <p class = "text-base"><strong>Supplier Id: </strong>{{supply.supplyId}}</p>
+        <p class = "text-base"><strong>Quantity: </strong>{{supply.quantity}}</p>
+        <p class = "text-base"><strong>Total price:</strong> $ {{supply.totalPrice}}</p>
+        <p class = "text-base"><strong>Order date:</strong> {{parsedDate(supply.orderDate)}}</p>
+        <p class = "text-base"><strong>Delivery date:</strong> {{parsedDate(supply.deliveryDate)}}</p>
+    </div>
+</div>
