@@ -1,1 +1,41 @@
-<p>delete-supply works!</p>
+<p class = "text-6xl font-extrabold text-center mt-12">Delete Supply</p>
+
+
+<div class = "flex items-center mt-16">
+    <form class = "w-96 mx-auto" (submit) = "deleteSupply(input.value); $event.preventDefault()"> 
+        <div class = "relative">
+            <input #input class="block w-full p-4 ps-10 text-lg text-gray-900 border border-black rounded-lg bg-gray-50
+            shadow-gray-600 shadow-lg" placeholder = "Supply id" required />
+            <button type = "submit" class = "text-white absolute end-2.5 bottom-2.5
+            bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-lg px-3 py-1"
+            >Delete</button>
+        </div>
+    </form>
+</div>
+
+<div [ngClass] = "{'hidden' : supplyIsDeleted == false, 'flex' : supplyIsDeleted == true}" class = "flex-col justify-center items-center mt-12">
+    <div class = "w-80 h-10">
+        <p class = "text-center text-2xl text-black font-extrabold">SUPPLY DELETED!</p>
+    </div>
+
+    <div class = "w-96 h-64 mt-6 mb-24 rounded-xl border-2 border-black bg-red-500 shadow-lg shadow-gray-800">
+        <p class = "text-xl text-center font-bold mt-3 mb-3 text-black"><strong>{{getSupply.supply.supplyName}}</strong> | <strong>{{getSupply.supply.productName}}</strong></p>
+    
+        <hr class = "border-t-2 w-full border-black">
+    
+        <div class = "flex flex-col justify-center p-5">
+            <p class = "text-base"><strong>Product Id: </strong>{{getSupply.supply.productId}}</p>
+            <p class = "text-base"><strong>Supplier Id: </strong>{{getSupply.supply.supplyId}}</p>
+            <p class = "text-base"><strong>Quantity: </strong>{{getSupply.supply.quantity}}</p>
+            <p class = "text-base"><strong>Total price:</strong> $ {{getSupply.supply.totalPrice}}</p>
+            <p class = "text-base"><strong>Order date:</strong> {{parsedDate(getSupply.supply.orderDate)}}</p>
+            <p class = "text-base"><strong>Delivery date:</strong> {{parsedDate(getSupply.supply.deliveryDate)}}</p>
+        </div>
+    </div>    
+</div>
+
+<div class = "flex flex-col items-center">
+    <div *ngIf="error == true" class="flex flex-col items-center justify-center w-96 bg-red-500 rounded-lg p-4 mt-10">
+        <p class="text-white text-center text-sm font-medium">{{ getLastError() }}</p>
+    </div>
+</div>

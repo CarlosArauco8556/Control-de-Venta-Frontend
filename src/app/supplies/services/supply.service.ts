@@ -69,11 +69,11 @@ export class SupplyService {
     }
   }
 
-  async deleteSupply(id: number): Promise<GetSupply>
+  async deleteSupply(id: number): Promise<any>
   {
     try{
       const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
-      const response = await firstValueFrom(this.http.delete<GetSupply>(`${this.baseUrl1}/${id}`, { headers: headers }));
+      const response = await firstValueFrom(this.http.delete<any>(`${this.baseUrl1}/${id}`, { headers: headers }));
       return Promise.resolve(response);
     } catch(error){
       console.log("Error in DeleteSupply", error);
