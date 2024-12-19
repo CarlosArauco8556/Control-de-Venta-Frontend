@@ -40,7 +40,7 @@ export const routes: Routes = [
         loadComponent: () => import('./products/pages/delete-product/delete-product.component').then(m => m.DeleteProductComponent)
     },
     {
-        path: 'update-product/:id',
+        path: 'update-product',
         pathMatch: 'full',
         loadComponent: () => import('./products/pages/update-product/update-product.component').then(m => m.UpdateProductComponent)
     },

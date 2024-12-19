@@ -1,1 +1,73 @@
-<p>add-product works!</p>
+<form [formGroup] = "forms" (ngSubmit) = "addProduct()" class = "max-w-md mx-auto border-2 border-black p-10 mt-12 mb-16 rounded-lg shadow-lg shadow-gray-400">
+
+    <p class = "text-2xl text-center font-extrabold">Add Product Form</p>
+
+    <div class = "mt-5 mb-2">
+        <label class = "block text-sm font-medium text-gray-900">Name</label>
+        <input type = "text" class = "bg-gray-50 border border-gray-300 text-gray-900  text-sm rounded-lg block w-full p-2.5" 
+        placeholder = "Ex: Coca Cola" formControlName = "name" required/>
+
+        <div *ngIf = "this.forms.get('name')?.invalid && this.forms.get('name')?.touched">
+            <p class="text-red-500 text-sm font-medium"> Field "Name" is required</p>
+        </div>
+    </div>
+
+    <div class = "mb-2">
+        <label class = "block text-sm font-medium text-gray-900">Price</label>
+        <input type = "number" class = "bg-gray-50 border border-gray-300 text-gray-900  text-sm rounded-lg block w-full p-2.5"
+        placeholder = "Ex: 2000" formControlName = "price" required/>
+
+        <div *ngIf = "this.forms.get('price')?.invalid && this.forms.get('price')?.touched">
+            <p class="text-red-500 text-sm font-medium"> Field "Price" is required</p>
+        </div>
+    </div>
+
+    <div class = "mb-2">
+        <label class = "block text-sm font-medium text-gray-900">Discount percentage</label>
+        <input type = "number" class = "bg-gray-50 border border-gray-300 text-gray-900  text-sm rounded-lg block w-full p-2.5"
+        placeholder = "Ex: 30.5" formControlName = "discountPercentage" required/>
+
+        <div *ngIf = "this.forms.get('discountPercentage')?.invalid && this.forms.get('discountPercentage')?.touched">
+            <p class="text-red-500 text-sm font-medium"> Field "Discount percentage" is required</p>
+        </div>
+    </div>
+
+    <div class = "mb-2">
+        <label class = "block mb-2 text-sm font-medium text-gray-900">Stock</label>
+        <input type = "number" class = "bg-gray-50 border border-gray-300 text-gray-900  text-sm rounded-lg block w-full p-2.5"
+        placeholder = "Ex: 300" formControlName = "stock" required/>
+
+        <div *ngIf = "this.forms.get('stock')?.invalid && this.forms.get('stock')?.touched">
+            <p class="text-red-500 text-sm font-medium"> Field "Stock" is required</p>
+        </div>
+    </div>
+
+    <div class = "mb-2">
+        <label class = "block text-sm font-medium text-gray-900">Minimun stock</label>
+        <input type = "number" class = "bg-gray-50 border border-gray-300 text-gray-900  text-sm rounded-lg block w-full p-2.5"
+        placeholder = "Ex: 50" formControlName = "stockMin" required/>
+
+        <div *ngIf = "this.forms.get('stockMin')?.invalid && this.forms.get('stockMin')?.touched">
+            <p class="text-red-500 text-sm font-medium"> Field "Minimun stock" is required</p>
+        </div>
+    </div>
+
+    <button type = "submit" class = "text-white bg-blue-700 hover:bg-blue-800 
+    font-medium rounded-lg text-lg w-full sm:w-full py-2.5 text-center mt-5 shadow-lg shadow-gray-600"
+    >Create</button>
+
+</form>
+
+<div [ngClass] = "{'hidden' : !error, 'flex' : error, 'overlay': error}" class = "flex-col items-center justify-center">
+    <div *ngFor = "let errors of errorMessages">
+        <div class = "w-96 bg-red-500 rounded-lg p-4 mb-1">
+            <p class = "text-white text-center text-xs font-medium">{{errors}}</p>
+        </div>
+    </div>
+</div>
+
+<div [ngClass] = "{'hidden' : !productIsAdded, 'flex' : productIsAdded, 'overlay': productIsAdded}" class = "flex-col items-center justify-center">
+    <div class = "bg-green-400 rounded-lg p-7">
+        <p class = "text-white text-center text-2xl font-medium">Product added!</p>
+    </div>
+</div>

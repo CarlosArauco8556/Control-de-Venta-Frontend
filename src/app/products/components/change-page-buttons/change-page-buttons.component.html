@@ -1,23 +1,8 @@
-<div class="flex items-center gap-x-10">
-    <!-- Botón Previous -->
-    <button 
-        type="button" 
-        class="flex items-center justify-center bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-indigo-700 transition duration-200 ease-in-out"
-        (click)="previousPage()">
-        <svg class="w-2.5 h-2.5 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5-4-4-4 4"/>
-        </svg>
-        Previous
-    </button>
-
-    <!-- Botón Next -->
-    <button 
-        type="button" 
-        class="flex items-center justify-center bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-indigo-700 transition duration-200 ease-in-out"
-        (click)="nextPage()">
-        <svg class="w-2.5 h-2.5 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-        </svg>
-        Next
-    </button>
+<div class = "flex items-center gap-x-6">
+    <button type = "button" class="bg-blue-700 hover:bg-blue-800 p-2 px-4 rounded-lg 
+    text-base font-medium text-white transform transition-all
+    active:translate-y-2" (click) = "previousPage()">Previous</button>
+    <button type = "button" class = "bg-blue-700 hover:bg-blue-800 p-2 px-4 rounded-lg
+     text-base font-medium text-white transform transition-all
+    active:translate-y-2" (click) = "nextPage()">Next</button>
 </div>
