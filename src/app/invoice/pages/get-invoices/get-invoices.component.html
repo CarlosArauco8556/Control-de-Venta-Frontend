@@ -1,0 +1,11 @@
+<p class="text-6xl font-extrabold text-center mt-20 text-indigo-600">Invoice List</p>
+<div class="grid-container">
+  <div *ngFor="let invoice of invoices" class="invoice-card">
+    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Codigo: {{invoice.code}}</h5>
+    <p class="font-normal text-gray-700 dark:text-gray-400"><strong>Descripción:</strong> {{invoice.descripcion}}</p>
+    <p class="font-normal text-gray-700 dark:text-gray-400"><strong>Fecha:</strong> {{invoice.fecha}}</p>
+    <p class="font-normal text-gray-700 dark:text-gray-400"><strong>Precion sin IVA</strong> {{invoice.priceWithoutVAT}}</p>
+    <p class="font-normal text-gray-700 dark:text-gray-400"><strong>IVA: </strong> {{invoice.totalVAT}}</p>
+    <p class="font-normal text-gray-700 dark:text-gray-400"><strong>Total:</strong> {{invoice.finalPrice}}</p>
+  </div>
+</div>

@@ -81,16 +81,16 @@
             <div *ngIf="isInvoicesOpen">
                 <ul id="dropdown-example" class="py-2 space-y-2">
                     <li>
-                       <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Crear Factura</a>
+                       <button (click)="loadComponent('create-invoice')" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Crear Factura</button>
                     </li>
                     <li>
-                       <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Actualizar factura</a>
+                       <button href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Actualizar factura</button>
                     </li>
                     <li>
-                       <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Eliminar factura</a>
+                       <button href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Eliminar factura</button>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Obtener facturas</a>
+                        <button (click)="loadComponent('get-invoices')" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Obtener facturas</button>
                     </li>
               </ul>
             </div>
@@ -137,5 +137,7 @@
    <products-add-product *ngIf="currentComponent === 'add-product'"></products-add-product>
    <products-update-product *ngIf="currentComponent === 'update-product/:id'"></products-update-product>
    <products-delete-product *ngIf="currentComponent === 'delete-product'"></products-delete-product>
+   <app-create-invoice *ngIf="currentComponent === 'create-invoice'"></app-create-invoice>
+   <app-get-invoices *ngIf="currentComponent === 'get-invoices'"></app-get-invoices>
  </div>
  

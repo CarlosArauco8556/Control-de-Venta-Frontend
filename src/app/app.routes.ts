@@ -45,6 +45,16 @@ export const routes: Routes = [
         loadComponent: () => import('./products/pages/update-product/update-product.component').then(m => m.UpdateProductComponent)
     },
     {
+        path: 'create-invoice',
+        pathMatch: 'full',
+        loadComponent: () => import('./invoice/pages/create-invoice/create-invoice.component').then(m => m.CreateInvoiceComponent)
+    },
+    {
+        path: 'get-invoices',
+        pathMatch: 'full',
+        loadComponent: () => import('./invoice/pages/get-invoices/get-invoices.component').then(m => m.GetInvoicesComponent)
+    },
+    {
         path: '**',
         redirectTo: 'auth-home'
     }

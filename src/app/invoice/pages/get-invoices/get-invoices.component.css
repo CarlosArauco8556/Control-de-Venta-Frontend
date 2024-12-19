@@ -1,0 +1,26 @@
+.text-6xl {
+  margin-bottom: 2rem; /* Espaciado debajo del título */
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+  gap: 1.5rem; /* Espaciado entre las tarjetas */
+  margin: 0 auto; /* Centrado del contenedor */
+  max-width: 1200px; /* Limitar el ancho del contenedor */
+  padding: 1rem;
+}
+
+.invoice-card {
+  background-color: white;
+  border: 1px solid #e5e7eb; /* Borde gris claro */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para efecto visual */
+  padding: 1rem;
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Efecto hover */
+}
+
+.invoice-card:hover {
+  background-color: #f3f4f6; /* Fondo más claro al pasar el ratón */
+  transform: scale(1.02); /* Efecto de zoom */
+}
