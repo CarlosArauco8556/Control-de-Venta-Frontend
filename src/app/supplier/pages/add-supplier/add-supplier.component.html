@@ -1,1 +1,55 @@
-<p>add-supplier works!</p>
+<div class="container mx-auto">
+    <h1 class="text-2xl font-bold mb-4">Añadir Nuevo Suministrador</h1>
+  
+    <form (ngSubmit)="onSubmit()">
+      <label for="name" class="block text-sm font-medium">Nombre:</label>
+      <input 
+        type="text" 
+        id="name" 
+        [(ngModel)]="supplier.name" 
+        name="name" 
+        class="input w-full mt-2" 
+        required 
+      />
+  
+      <label for="rut" class="block text-sm font-medium mt-4">RUT:</label>
+      <input 
+        type="text" 
+        id="rut" 
+        [(ngModel)]="supplier.rut" 
+        name="rut" 
+        class="input w-full mt-2" 
+        required 
+      />
+  
+      <label for="email" class="block text-sm font-medium mt-4">Correo:</label>
+      <input 
+        type="email" 
+        id="email" 
+        [(ngModel)]="supplier.email" 
+        name="email" 
+        class="input w-full mt-2" 
+        required 
+      />
+  
+      <label for="phone" class="block text-sm font-medium mt-4">Teléfono:</label>
+      <input 
+        type="text" 
+        id="phone" 
+        [(ngModel)]="supplier.phone" 
+        name="phone" 
+        class="input w-full mt-2" 
+        required 
+      />
+  
+      <button class="btn mt-6 bg-blue-500 text-white" type="submit">Añadir</button>
+    </form>
+  
+    <!-- Mensajes -->
+    <div *ngIf="errorMessage" class="mt-4 text-red-500">
+      {{ errorMessage }}
+    </div>
+    <div *ngIf="successMessage" class="mt-4 text-green-500">
+      {{ successMessage }}
+    </div>
+  </div>
