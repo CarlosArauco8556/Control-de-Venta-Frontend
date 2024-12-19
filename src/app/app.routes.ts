@@ -45,6 +45,26 @@ export const routes: Routes = [
         loadComponent: () => import('./products/pages/update-product/update-product.component').then(m => m.UpdateProductComponent)
     },
     {
+        path: 'get-supplies',
+        pathMatch: 'full',
+        loadComponent: () => import('./supplies/pages/get-supplies/get-supplies.component').then(m => m.GetSuppliesComponent)
+    },
+    {
+        path: 'add-supply',
+        pathMatch: 'full',
+        loadComponent: () => import('./supplies/pages/add-supply/add-supply.component').then(m => m.AddSupplyComponent)
+    },
+    {
+        path: 'update-suply',
+        pathMatch: 'full',
+        loadComponent: () => import('./supplies/pages/update-supply/update-supply.component').then(m => m.UpdateSupplyComponent)
+    },
+    {
+        path: 'delete-supply',
+        pathMatch: 'full',
+        loadComponent: () => import('./supplies/pages/delete-supply/delete-supply.component').then(m => m.DeleteSupplyComponent)
+    },
+    {
         path: '**',
         redirectTo: 'auth-home'
     }
